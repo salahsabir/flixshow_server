@@ -5,7 +5,6 @@ const verify = require("../verifyToken")
 //CREATE
 
 router.post("/", verify, async (req, res) => {
-   console.log(req.user)
     if (req.user.isAdmin) {
       const newMovie = new movieModel(req.body)
       try{

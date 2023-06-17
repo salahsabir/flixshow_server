@@ -82,7 +82,6 @@ router.post("/login", async (req, res) => {
     
         // save user token
         user.token = token;
-        console.log(user)
         // user
         return res.status(200).json(user);
       }
