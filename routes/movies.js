@@ -69,16 +69,12 @@ router.get("/id/:id", verify, async (req, res) => {
 //GET ALL
 
 router.get("/", verify, async (req, res) => {
-  if (req.user.isAdmin) {
     try {
       const shows = await movieModel.find();
       res.status(200).json(shows.reverse());
     } catch (err) {
       res.status(500).json(err);
     }
-  } else {
-    res.status(403).json("You can are not allowed to see all users");
-  }
 });
 
 //GET RANDOM
