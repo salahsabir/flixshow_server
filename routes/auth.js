@@ -42,7 +42,7 @@ router.post("/register", async (req, res) => {
         { id: user._id, isAdmin: user.isAdmin },
         process.env.TOKEN_KEY,
         {
-          expiresIn: "5h",
+          expiresIn: "5d",
         }
       );
       // save user token
@@ -76,7 +76,7 @@ router.post("/login", async (req, res) => {
           { id: user._id, isAdmin: user.isAdmin},
           process.env.TOKEN_KEY,
           {
-            expiresIn: "5h",
+            expiresIn: "5d",
           }
         );
     
