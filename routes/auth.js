@@ -94,4 +94,22 @@ router.post("/login", async (req, res) => {
     // Our login logic ends here
     });
 
+//LOGIN
+router.get("/token", async (req, res) => {
+  // Our authintacation logic starts here
+  try {
+    const { token } = req.body;
+    jwt.verify(token, process.env.TOKEN_KEY, (err, user) => {
+      if (err) {
+        res.status(403).json("Token is not valid!");
+      }else{
+        res.status(201).json('Token is still valid')
+      }
+    });
+  } catch(err) {
+    console.log()
+  }
+  // Our login logic ends here
+  });
+
 module.exports = router
